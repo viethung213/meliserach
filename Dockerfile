@@ -2,7 +2,7 @@ FROM getmeili/meilisearch:v1.8
 
 ENV MEILI_MASTER_KEY=chiendepvl
 
-# Không expose port 7700 vì Render dùng PORT do họ gán động
-# Sử dụng biến môi trường PORT để MeiliSearch khởi chạy đúng
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-CMD ["meilisearch", "--http-addr", "0.0.0.0:${PORT}"]
+CMD ["/entrypoint.sh"]
