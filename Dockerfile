@@ -1,8 +1,4 @@
-FROM getmeili/meilisearch:v1.8
+FROM getmeili/meilisearch:latest
 
 ENV MEILI_MASTER_KEY=chiendepvl
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-CMD ["/entrypoint.sh"]
+ENV MEILI_HTTP_ADDR=0.0.0.0:7700
